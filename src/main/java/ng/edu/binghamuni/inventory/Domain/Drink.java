@@ -1,5 +1,4 @@
 package ng.edu.binghamuni.inventory.Domain;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -15,12 +14,13 @@ public class Drink {public List<Ingredient> getIngredientList() {
         this.ingredientList = ingredientList;
     }
 
-    public Drink(String name, int capacity, String colour, String type, String company, List<Ingredient> ingredientList, Long id) {
+    public Drink(String name, int capacity, String colour, String type, String company, int price, List<Ingredient> ingredientList, Long id) {
         this.name = name;
         this.capacity = capacity;
         this.colour = colour;
         this.type = type;
         this.company = company;
+        this.price= price;
         this.ingredientList = ingredientList;
         this.id = id;
     }
@@ -30,7 +30,7 @@ public class Drink {public List<Ingredient> getIngredientList() {
     private String colour;
     private String type;
     private String company;
-
+    private int price;
     @OneToMany
     private List<Ingredient> ingredientList;
     @Id
@@ -86,5 +86,16 @@ public class Drink {public List<Ingredient> getIngredientList() {
 
     public Long getId() {
         return id;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void getColour(Object colour) {
     }
 }
