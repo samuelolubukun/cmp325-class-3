@@ -1,9 +1,9 @@
 package ng.edu.binghamuni.inventory.Domain;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+
 
 @Entity(name="drink")
 public class Drink {public List<Ingredient> getIngredientList() {
@@ -33,8 +33,11 @@ public class Drink {public List<Ingredient> getIngredientList() {
     private int price;
     @OneToMany
     private List<Ingredient> ingredientList;
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
 
     public String getName() {
         return name;

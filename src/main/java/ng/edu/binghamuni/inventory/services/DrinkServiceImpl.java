@@ -53,7 +53,7 @@ public class DrinkServiceImpl implements DrinkService{
             drinkRepository.save(updateDrink);
             return updateDrink;
         }else{
-            throw new RuntimeException("drink not exist");
+            throw new RuntimeException("drink does not exist");
         }
     }
 
