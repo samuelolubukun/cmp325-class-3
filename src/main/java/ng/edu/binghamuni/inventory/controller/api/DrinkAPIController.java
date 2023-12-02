@@ -13,38 +13,37 @@ import java.util.List;
 
 @Controller
 public class DrinkAPIController {
-
     @Autowired
     DrinkRepository drinkRepository;
 
     @Autowired
-    DrinkService drinksService;
+    DrinkService drinkService;
 
-
-    @RequestMapping("/drink")
-    @GetMapping("/drink")
-    public ResponseEntity<List<Drink>> getAllDrink(){
-
-        return ResponseEntity.ok().body(drinksService.getAllDrink());
-        //the return type is a Json
+    @RequestMapping("/drinks")
+    @GetMapping("/drinks")
+    public ResponseEntity<List<Drink>> getAllDrinks(){
+        return ResponseEntity.ok().body(drinkRepository.findAll());
     }
+
+    @RequestMapping("/drinks/{id}")
+    @GetMapping
+    public ResponseEntity<Drink> getDrinkById(@PathVariable long id){
+        return ResponseEntity.ok().body(drinkService.getDrinkById(id));
+    }
+
     @PostMapping("/drink")
     public ResponseEntity<Drink> createDrink(@RequestBody Drink drink){
-        return  ResponseEntity.ok().body(drinksService.saveDrink(drink));
+        return ResponseEntity.ok().body(drinkService.saveDrink(drink));
     }
-
 
     @PutMapping("/drink/{id}")
     public ResponseEntity<Drink> updateDrink(@PathVariable long id, @RequestBody Drink drink){
-        return  ResponseEntity.ok().body(drinksService.updateDrink(drink));
+        return ResponseEntity.ok().body(drinkService.updateDrinkById(drink));
     }
 
     @DeleteMapping("/drink/{id}")
     public HttpStatus deleteDrink(@PathVariable long id){
-        drinksService.deleteDrink(id);
-        return  HttpStatus.OK;
+        drinkService.deleteDrinkById(id);
+        return HttpStatus.OK;
     }
-
-
-
 }

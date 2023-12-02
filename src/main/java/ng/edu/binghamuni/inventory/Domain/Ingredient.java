@@ -3,10 +3,36 @@
     import jakarta.persistence.Entity;
     import jakarta.persistence.Id;
 
-    @Entity(name="ingredient")
-    public class Ingredient{
-        public Ingredient() {
+    @Entity(name = "ingredient")
+    public class Ingredient {
+        @Id
+        private Long id;
+        private String nutrition;
+        private String name;
 
+        public Ingredient() {
+        }
+        public Ingredient(Long id, String nutrition, String name) {
+            this.id = id;
+            this.nutrition = nutrition;
+            this.name = name;
+        }
+
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getNutrition() {
+            return nutrition;
+        }
+
+        public void setNutrition(String nutrition) {
+            this.nutrition = nutrition;
         }
 
         public String getName() {
@@ -16,32 +42,4 @@
         public void setName(String name) {
             this.name = name;
         }
-
-        public String getIngredient() {
-            return ingredient;
-        }
-
-        public void setIngredient(String ingredient) {
-            this.ingredient = ingredient;
-        }
-
-        public Ingredient(Long id, String name, String ingredient) {
-            this.id = id;
-            this.name = name;
-            this.ingredient = ingredient;
-        }
-
-        @Id
-        private Long id;
-        private String name;
-        private String ingredient;
-
-        public void setId(Long id) {
-            this.id = id;
-        }
-
-        public Long getId() {
-            return id;
-        }
     }
-

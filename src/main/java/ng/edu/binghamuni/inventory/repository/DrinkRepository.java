@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DrinkRepository extends JpaRepository<Drink,Long> {
-//    @Query("")
+//    Drink(type); Long(id type)
+//    you can also write your own custom query using: @Query("")
 //    List<Drink> findDrinkByPriceGreaterThan(int price);
+
+//    this repositpry helps us interact with our database
 }

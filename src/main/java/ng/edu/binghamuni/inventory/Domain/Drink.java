@@ -1,40 +1,61 @@
 package ng.edu.binghamuni.inventory.Domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.Date;
 import java.util.List;
 
-@Entity(name="drink")
-public class Drink {public List<Ingredient> getIngredientList() {
-    return ingredientList;
-}
 
-    public void setIngredientList(List<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
-    }
-
-    public Drink(String name, int capacity, String colour, String type, String company, List<Ingredient> ingredientList, Long id) {
-        this.name = name;
-        this.capacity = capacity;
-        this.colour = colour;
-        this.type = type;
-        this.company = company;
-        this.ingredientList = ingredientList;
-        this.id = id;
-    }
-
+@Entity
+@Table(name = "drink")
+//or @Entity(name = "drink")
+public class Drink {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private int capacity;
-    private String colour;
+    private String color;
     private String type;
     private String company;
 
+    @CreationTimestamp
+    Date created_at;
+
+    @UpdateTimestamp
+    Date updated_at;
+    public Drink() {
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
     @OneToMany
-    private List<Ingredient> ingredientList;
-    @Id
-    private Long id;
+    private List<Ingredient> ingredients;
+    public Drink(Long id, String name, int capacity, String color, String type, String company, List<Ingredient> ingredients) {
+        this.id = id;
+        this.name = name;
+        this.capacity = capacity;
+        this.color = color;
+        this.type = type;
+        this.company = company;
+        this.ingredients = ingredients;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -52,12 +73,12 @@ public class Drink {public List<Ingredient> getIngredientList() {
         this.capacity = capacity;
     }
 
-    public String getColour() {
-        return colour;
+    public String getColor() {
+        return color;
     }
 
-    public void setColour(String colour) {
-        this.colour = colour;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getType() {
@@ -72,19 +93,7 @@ public class Drink {public List<Ingredient> getIngredientList() {
         return company;
     }
 
-    public Drink() {
-
-    }
-
     public void setCompany(String company) {
         this.company = company;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
     }
 }
