@@ -1,5 +1,6 @@
 # cmp325class-3
-Inventory Java Spring Application with MySQL (Database) connection.
+
+
 # Drink Inventory Management System
 
 https://github.com/samuelolubukun/cmp325class-3/assets/132141300/f92bc7a7-2e94-48be-9c32-4ab1fa17323d
