@@ -5,8 +5,6 @@
     import ng.edu.binghamuni.inventory.Domain.Drink;
     import ng.edu.binghamuni.inventory.services.DrinkService;
     import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.boot.Banner;
-    import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
     import org.springframework.web.bind.annotation.GetMapping;
     import org.springframework.web.bind.annotation.ModelAttribute;
@@ -52,8 +50,6 @@
                 model.addAttribute("pageTitle", "Edit Drink Id:" + id);
                 return "showEditDrinkForm";
             } catch (Exception e) {
-                // Handle exception
-                // You might want to add error handling logic or redirect to an error page
                 return "redirect:/";
             }
         }
