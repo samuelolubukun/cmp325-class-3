@@ -3,7 +3,9 @@
 
 # Drink Inventory Management System
 
-https://github.com/samuelolubukun/cmp325class-3/assets/132141300/f92bc7a7-2e94-48be-9c32-4ab1fa17323d
+
+https://github.com/samuelolubukun/cmp325class-3/assets/132141300/5f6b3167-353f-429b-882d-427f89ffac52
+
 
 ## Introduction
 
