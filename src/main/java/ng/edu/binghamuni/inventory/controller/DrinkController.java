@@ -37,7 +37,7 @@
         @PostMapping("/saveDrink")
         public String saveDrink(@ModelAttribute("drink") Drink drink, RedirectAttributes redirectAttributes){
             drinkService.saveDrink(drink);
-            redirectAttributes.addFlashAttribute("message", "Drink updated successfully");
+            redirectAttributes.addFlashAttribute("message", "Drink Added successfully");
 
             return "redirect:/";
         }
